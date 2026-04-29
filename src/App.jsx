@@ -489,7 +489,7 @@ function SkillsSection() {
     { label: "Strategy", items: ["Discovery workshops", "Lean canvas", "Value proposition design", "Market mapping", "Service mapping", "Personas", "Journey maps", "JTBD"] },
     { label: "Brand & Visual", items: ["Logo design", "Typography systems", "Color systems", "Brand guidelines", "Photography direction"] },
     { label: "Implementation", items: ["Webflow", "HTML", "CSS", "Bootstrap"] },
-    { label: "Currently learning", items: ["AI-assisted design workflows"] },
+    { label: "AI-assisted design", items: ["Claude", "ChatGPT", "Midjourney"] },
   ];
   return (
     <section id="skills" style={{ padding: isMobile ? "72px 24px" : "120px 40px", maxWidth: 1100, margin: "0 auto" }}>
