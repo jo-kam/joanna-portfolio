@@ -389,8 +389,8 @@ function WorkSection() {
   const isMobile = useIsMobile();
   const groups = [
     { label: "Complex Operations — Two Worlds", description: "Products that serve two completely different users who depend on the same system.", projects: [
-      { tag: "Transport / NCC Startup", title: "Hauly — Heavy Transport Platform", live: true, summary: "Lead designer on a digital ordering and transport platform for construction materials. Interviewed truck drivers at quarries. Drivers started logging deliveries they had never reported before — a clear signal the flow earned trust." },
-      { tag: "Transport / NCC Stone Division", title: "NCC — Transport Management Platform", live: false, summary: "UX, UI, and research modernising transport planning across NCC's Stone Division. The tool cleared repetitive work and left space for human judgment. NCC dropped several paid tools and connected the workflow to Microsoft Dynamics." },
+      { tag: "Transport / NCC Startup", title: "Hauly — Heavy Transport Platform", live: false, summary: "Lead designer on a digital ordering and transport platform for construction materials. Interviewed truck drivers at quarries. Drivers started logging deliveries they had never reported before — a clear signal the flow earned trust." },
+      { tag: "Transport / NCC Stone Division", title: "NCC — Transport Management Platform", live: true, summary: "UX, UI, and research modernising transport planning across NCC's Stone Division. The tool cleared repetitive work and left space for human judgment. NCC dropped several paid tools and connected the workflow to Microsoft Dynamics." },
     ]},
     { label: "Early Stage — Zero to One", description: "No product. No validated assumptions. Often no clear user base yet.", projects: [
       { tag: "Recruitment / Social Impact", title: "Zynca — Recruitment Platform", live: true, summary: "From zero through to first live version. Led discovery, lean canvas, value proposition mapping, brand, full wireframes, and clickable prototype. Today over 1000 users. Clients include Max, Assa Abloy, and Subway." },
