@@ -202,7 +202,7 @@ function Hero() {
             color: DS.colors.textBody, lineHeight: 1.7,
             maxWidth: 540, marginBottom: isMobile ? 32 : 48,
           }}>
-            Complex problems → clear solutions. Research first, always. A decade of experience rooted in cognitive science. Ambiguity doesn't scare me.
+            Complex problems → clear solutions. Research first, always. A decade of experience rooted in cognitive science. Ambiguity doesn't scare me. It inspires me.
           </p>
         </div>
 
@@ -498,10 +498,11 @@ function SkillsSection() {
         display: "grid",
         gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(260px, 1fr))",
         gap: 16,
+        alignItems: "stretch",
       }}>
         {groups.map((g, i) => (
-          <FadeIn key={i} delay={i * 60}>
-            <div style={{ background: DS.colors.raised, border: `0.5px solid ${DS.colors.border}`, borderRadius: 4, padding: "20px 24px" }}>
+          <FadeIn key={i} delay={i * 60} style={{ height: "100%" }}>
+            <div style={{ background: DS.colors.raised, border: `0.5px solid ${DS.colors.border}`, borderRadius: 4, padding: "20px 24px", height: "100%" }}>
               <Eyebrow style={{ marginBottom: 16 }}>{g.label}</Eyebrow>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                 {g.items.map((item, j) => (
