@@ -667,7 +667,7 @@ function Footer() {
       justifyContent: "space-between", alignItems: isMobile ? "flex-start" : "center",
       gap: isMobile ? 12 : 12,
     }}>
-      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: DS.colors.textDim, letterSpacing: "0.06em" }}>© 2025 Joanna Kaminska</span>
+      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: DS.colors.textDim, letterSpacing: "0.06em" }}>© 2026 Joanna Kaminska</span>
       <NavLink href="/design-system" style={{
         fontFamily: "'DM Mono', monospace", fontSize: 11,
         color: DS.colors.textDim, letterSpacing: "0.06em",
