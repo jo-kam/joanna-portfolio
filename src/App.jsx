@@ -326,10 +326,12 @@ function WorkSection() {
     { label: "Mature Products — Real Users", description: "Changes here are measured, tested, and argued for.", projects: [
       { tag: "Mental Health / Gaming", title: "Fig by Mindforce", live: true, summary: "First UX voice on a narrative game for people managing depression. Redesigned medication management, onboarding, paywall, and co-defined a rewards system. Users were people talking about their mental health." },
       { tag: "E-commerce / Scale", title: "Allegro — UX Design", live: true, summary: "Poland's dominant e-commerce platform. Login flows, live bidding, help center. Built a complex Axure prototype for real-time auction dynamics and ran usability studies." },
-      { tag: "Moving Platform / Brand", title: "Flyttsmart — Brand Refresh", live: true, summary: "Research, full service mapping across four personas, broker engagement strategy, complete brand refresh. Logo, colour, typography, photography direction, guidelines. Delivered in two weeks." },
+      { tag: "Consumer / IoT", title: "Tinitell — Kids Wearable Device", live: false, summary: "Entire design team. Redesigned the parents's mobile app, designed interaction patterns for a new watch version, coordinated diary studies. Collaborated with industrial designer for coherent digital and physical experience." },
     ]},
-    { label: "Brand and Web", description: null, projects: [
+    { label: "Web Design", description: null, projects: [
       { tag: "Executive Advisory / Brand", title: "9Yard Partner — Identity and Website", live: true, summary: "Full brand identity for an executive advisory consultancy. Logo, typography, deep charcoal and gold palette, pattern system, and Webflow website. Site is live at 9yardpartner.com." },
+      { tag: "Legal Services / Web", title: "Legalisering.se — Website Design", live: true, summary: "Full website design for a Swedish Notarius Publicus and document legalisation service. Multilingual audience across Swedish, English, and Norwegian. Implemented in WordPress. Site is live at legalisering.se." },
+      { tag: "Moving Platform / Brand", title: "Flyttsmart — Brand Refresh", live: true, summary: "Research, full service mapping across four personas, broker engagement strategy, complete brand refresh. Logo, colour, typography, photography direction, guidelines. Delivered in two weeks." },
       { tag: "Consumer / IoT", title: "Tinitell — Kids Wearable Device", live: false, summary: "Entire design team. Redesigned the parents' mobile app, designed interaction patterns for a new watch version, coordinated diary studies. Collaborated with industrial designer for coherent digital and physical experience." },
     ]},
   ];
