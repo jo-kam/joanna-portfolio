@@ -435,8 +435,8 @@ function AboutSection() {
               ))}
             </FadeIn>
             <FadeIn delay={isMobile ? 0 : 200}>
-              <div style={{ background: DS.colors.card, border: `0.5px solid ${DS.colors.border}`, borderLeft: `2px solid ${DS.colors.accent}`, borderRadius: 4, padding: "20px 24px", marginBottom: 32 }}>
-                <Eyebrow style={{ marginBottom: 12 }}>Not a fit for</Eyebrow>
+              <div style={{ background: DS.colors.card, border: `0.5px solid ${DS.colors.border}`, borderLeft: `2px solid #8C50DC`, borderRadius: 4, padding: "20px 24px", marginBottom: 32 }}>
+                <Eyebrow style={{ marginBottom: 12, color: "#8C50DC" }}>Not a fit for</Eyebrow>
                 <p style={{ fontSize: 13, fontWeight: 300, color: DS.colors.textBody, lineHeight: 1.7 }}>Agency or consultancy work. Roles where design executes decisions made elsewhere. Teams that need someone who won't push back.</p>
               </div>
             </FadeIn>
@@ -488,7 +488,7 @@ function SkillsSection() {
     { label: "Design", items: ["Wireframes", "Hi-Fi Prototypes", "UI design", "Design systems", "Interaction design", "Information architecture", "Microcopy", "Accessibility (WCAG)", "Figma", "Sketch"] },
     { label: "Strategy", items: ["Discovery workshops", "Lean canvas", "Value proposition design", "Service mapping", "Personas", "Journey maps", "Jobs-to-be-Done", "OKRs", "Competitor analysis", "Stakeholder mapping", "Double Diamond"] },
     { label: "Facilitation", items: ["Workshops", "Design sprints", "Stakeholder alignment", "Design reviews", "Miro", "FigJam"] },
-    { label: "Brand & Visual", items: ["Logo design", "Typography systems", "Color systems", "Brand guidelines", "Webflow"] },
+    { label: "Brand & Visual", items: ["Logo design", "Brand guidelines", "Webflow"] },
     { label: "Implementation", items: ["HTML", "CSS", "Bootstrap", "React (basic)", "Unity (design collaboration)"] },
     { label: "AI-assisted design", items: ["Claude", "Gemini", "Midjourney"] },
   ];
