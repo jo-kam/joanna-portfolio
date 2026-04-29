@@ -448,6 +448,7 @@ function AboutSection() {
             </FadeIn>
           </div>
         </div>
+        {/* Testimonials hidden for now
         <FadeIn delay={100} style={{ marginTop: isMobile ? 48 : 80 }}>
           <div style={{ borderTop: `0.5px solid ${DS.colors.border}`, paddingTop: 40 }}>
             <Eyebrow style={{ marginBottom: 28 }}>What people say</Eyebrow>
@@ -470,6 +471,7 @@ function AboutSection() {
             </div>
           </div>
         </FadeIn>
+        */}
       </div>
     </section>
   );
