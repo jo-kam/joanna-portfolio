@@ -149,7 +149,7 @@ const INDUSTRIES = [
   "Mental Health & Gaming",
   "E-commerce",
   "Consumer IoT",
-  "Professional Services",
+  "Moving / Real Estate",
   "...and more",
 ];
 
