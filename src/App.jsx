@@ -624,7 +624,11 @@ function ContactSection() {
           </FadeIn>
           <FadeIn delay={isMobile ? 0 : 150}>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {[["Email","joanna.kaminska.se@gmail.com",true],["LinkedIn","www.linkedin.com/in/joanna-ux",true],["Location","Stockholm, Sweden",false]].map(([label, value, isLink]) => (
+              {[
+                { label: "Email", value: "joanna.kaminska.se@gmail.com", href: "mailto:joanna.kaminska.se@gmail.com" },
+                { label: "LinkedIn", value: "joanna-ux", href: "https://www.linkedin.com/in/joanna-ux" },
+                { label: "Location", value: "Stockholm, Sweden", href: null },
+              ].map(({ label, value, href }) => (
                 <div key={label} style={{
                   display: "flex", justifyContent: "space-between", alignItems: "center",
                   padding: "14px 18px", background: DS.colors.raised,
@@ -632,7 +636,14 @@ function ContactSection() {
                   flexWrap: isMobile ? "wrap" : "nowrap", gap: 8,
                 }}>
                   <Eyebrow>{label}</Eyebrow>
-                  <span style={{ fontSize: 13, color: isLink ? DS.colors.accent : DS.colors.textBody, fontWeight: 400 }}>{value}</span>
+                  {href ? (
+                    <a href={href} target={href.startsWith("mailto") ? "_self" : "_blank"} rel="noopener noreferrer"
+                      style={{ fontSize: 13, color: DS.colors.accent, fontWeight: 400, textDecoration: "none" }}>
+                      {value}
+                    </a>
+                  ) : (
+                    <span style={{ fontSize: 13, color: DS.colors.textBody, fontWeight: 400 }}>{value}</span>
+                  )}
                 </div>
               ))}
             </div>
