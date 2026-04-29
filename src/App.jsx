@@ -484,12 +484,11 @@ function AboutSection() {
 function SkillsSection() {
   const isMobile = useIsMobile();
   const groups = [
-    { label: "Research", items: ["User interviews", "Diary studies", "Usability testing", "Focus groups", "Assumption mapping", "RITE", "HEART metrics", "Round Robin", "A/B testing", "Lookback", "Optimizely", "Empathy mapping", "Card sorting", "Heuristic evaluation", "Contextual inquiry", "Cognitive walkthrough", "Tree testing", "Surveys", "Eye-tracking / heat maps"] },
-    { label: "Design", items: ["Wireframes", "Prototypes", "UI design", "Design systems", "Interaction design", "Information architecture", "Microcopy / UX writing", "Accessibility (WCAG)", "Figma", "FigJam", "Axure", "Miro", "Sketch"] },
-    { label: "Strategy", items: ["Discovery workshops", "Lean canvas", "Value proposition design", "Market mapping", "Service mapping", "Personas", "Journey maps", "Jobs-to-be-Done", "OKRs", "Competitor analysis", "Stakeholder mapping", "Design sprints", "Double Diamond"] },
-    { label: "Facilitation", items: ["Workshops", "Design sprints", "Stakeholder alignment", "Design reviews", "Assumption testing sessions"] },
-    { label: "Brand & Visual", items: ["Logo design", "Typography systems", "Color systems", "Brand guidelines", "Photography direction", "Webflow", "Motion design / animation basics"] },
-    { label: "Platforms", items: ["Web", "iOS", "Android"] },
+    { label: "Research", items: ["User interviews", "Usability testing", "HEART metrics", "A/B testing", "Lookback", "Empathy mapping", "Card sorting", "Heuristic evaluation", "Contextual inquiry", "Cognitive walkthrough", "Tree testing", "Heat maps"] },
+    { label: "Design", items: ["Wireframes", "Hi-Fi Prototypes", "UI design", "Design systems", "Interaction design", "Information architecture", "Microcopy", "Accessibility (WCAG)", "Figma", "Sketch"] },
+    { label: "Strategy", items: ["Discovery workshops", "Lean canvas", "Value proposition design", "Service mapping", "Personas", "Journey maps", "Jobs-to-be-Done", "OKRs", "Competitor analysis", "Stakeholder mapping", "Double Diamond"] },
+    { label: "Facilitation", items: ["Workshops", "Design sprints", "Stakeholder alignment", "Design reviews", "Miro", "FigJam"] },
+    { label: "Brand & Visual", items: ["Logo design", "Typography systems", "Color systems", "Brand guidelines", "Webflow"] },
     { label: "Implementation", items: ["HTML", "CSS", "Bootstrap", "React (basic)", "Unity (design collaboration)"] },
     { label: "AI-assisted design", items: ["Claude", "Gemini", "Midjourney"] },
   ];
