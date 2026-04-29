@@ -202,7 +202,7 @@ function Hero() {
             color: DS.colors.textBody, lineHeight: 1.7,
             maxWidth: 540, marginBottom: isMobile ? 32 : 48,
           }}>
-            Complex problems → clear solutions. Research first, always. A decade of experience rooted in cognitive science. Ambiguity doesn't scare me. It inspires me.
+            Complex problems → clear solutions. Research first, always. A decade of experience rooted in cognitive science. Ambiguity doesn't scare me.
           </p>
         </div>
 
