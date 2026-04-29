@@ -202,7 +202,7 @@ function Hero() {
             color: DS.colors.textBody, lineHeight: 1.7,
             maxWidth: 540, marginBottom: isMobile ? 32 : 48,
           }}>
-            Complex problems → clear solutions. Research first, always. A decade of experience rooted in cognitive science. Ambiguity doesn't scare me. It inspires me.
+            Complex problems → clear solutions. Research first, always. A decade of experience rooted in cognitive science. Ambiguity doesn't scare me.
           </p>
         </div>
 
@@ -489,7 +489,7 @@ function SkillsSection() {
     { label: "Strategy", items: ["Discovery workshops", "Lean canvas", "Value proposition design", "Market mapping", "Service mapping", "Personas", "Journey maps", "JTBD"] },
     { label: "Brand & Visual", items: ["Logo design", "Typography systems", "Color systems", "Brand guidelines", "Photography direction"] },
     { label: "Implementation", items: ["Webflow", "HTML", "CSS", "Bootstrap"] },
-    { label: "AI-assisted design", items: ["Claude", "ChatGPT", "Midjourney"] },
+    { label: "AI-assisted design", items: ["Claude", "Gemini", "Midjourney"] },
   ];
   return (
     <section id="skills" style={{ padding: isMobile ? "72px 24px" : "120px 40px", maxWidth: 1100, margin: "0 auto" }}>
