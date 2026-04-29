@@ -445,7 +445,7 @@ function AboutSection() {
               <div style={{ borderLeft: `0.5px solid ${DS.colors.border}`, paddingLeft: 20 }}>
                 <div style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 800, fontSize: 15, color: DS.colors.textPrimary, letterSpacing: "-0.01em" }}>MSc Cognitive Science</div>
                 <div style={{ fontSize: 13, color: DS.colors.textMuted, marginTop: 2 }}>Adam Mickiewicz University, Poznań — 2007–2012</div>
-                <p style={{ fontSize: 13, fontWeight: 300, color: DS.colors.textBody, lineHeight: 1.7, marginTop: 10 }}>One of the first programs of its kind in Poland. HCI, human perception, memory, reasoning, language, epistemology. The breadth trained a specific way of thinking: holding multiple frameworks at once, questioning assumptions, building arguments from evidence.</p>
+                <p style={{ fontSize: 13, fontWeight: 300, color: DS.colors.textBody, lineHeight: 1.7, marginTop: 10 }}>The first program of its kind in Poland. HCI, human perception, memory, reasoning, language, epistemology. The breadth trained a specific way of thinking: holding multiple frameworks at once, questioning assumptions, building arguments from evidence.</p>
               </div>
             </FadeIn>
           </div>
@@ -546,7 +546,7 @@ function ContactSection() {
           </FadeIn>
           <FadeIn delay={isMobile ? 0 : 150}>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {[["Email","joanna@example.com",true],["LinkedIn","linkedin.com/in/joannakaminska",true],["Location","Stockholm, Sweden",false]].map(([label, value, isLink]) => (
+              {[["Email","joanna.kaminska.se@gmail.com",true],["LinkedIn","linkedin.com/in/joannakaminska",true],["Location","Stockholm, Sweden",false]].map(([label, value, isLink]) => (
                 <div key={label} style={{
                   display: "flex", justifyContent: "space-between", alignItems: "center",
                   padding: "14px 18px", background: DS.colors.raised,
