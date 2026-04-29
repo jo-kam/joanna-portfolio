@@ -484,11 +484,13 @@ function AboutSection() {
 function SkillsSection() {
   const isMobile = useIsMobile();
   const groups = [
-    { label: "Research", items: ["User interviews", "Diary studies", "Usability testing", "Focus groups", "Assumption mapping", "RITE", "HEART metrics", "Round Robin", "A/B testing", "Lookback", "Optimizely"] },
-    { label: "Design", items: ["Wireframes", "Prototypes", "UI design", "Design systems", "Figma", "FigJam", "Axure"] },
-    { label: "Strategy", items: ["Discovery workshops", "Lean canvas", "Value proposition design", "Market mapping", "Service mapping", "Personas", "Journey maps", "JTBD"] },
-    { label: "Brand & Visual", items: ["Logo design", "Typography systems", "Color systems", "Brand guidelines", "Photography direction"] },
-    { label: "Implementation", items: ["Webflow", "HTML", "CSS", "Bootstrap"] },
+    { label: "Research", items: ["User interviews", "Diary studies", "Usability testing", "Focus groups", "Assumption mapping", "RITE", "HEART metrics", "Round Robin", "A/B testing", "Lookback", "Optimizely", "Empathy mapping", "Card sorting", "Heuristic evaluation", "Contextual inquiry", "Cognitive walkthrough", "Tree testing", "Surveys", "Eye-tracking / heat maps"] },
+    { label: "Design", items: ["Wireframes", "Prototypes", "UI design", "Design systems", "Interaction design", "Information architecture", "Microcopy / UX writing", "Accessibility (WCAG)", "Figma", "FigJam", "Axure", "Miro", "Sketch"] },
+    { label: "Strategy", items: ["Discovery workshops", "Lean canvas", "Value proposition design", "Market mapping", "Service mapping", "Personas", "Journey maps", "Jobs-to-be-Done", "OKRs", "Competitor analysis", "Stakeholder mapping", "Design sprints", "Double Diamond"] },
+    { label: "Facilitation", items: ["Workshops", "Design sprints", "Stakeholder alignment", "Design reviews", "Assumption testing sessions"] },
+    { label: "Brand & Visual", items: ["Logo design", "Typography systems", "Color systems", "Brand guidelines", "Photography direction", "Webflow", "Motion design / animation basics"] },
+    { label: "Platforms", items: ["Web", "iOS", "Android"] },
+    { label: "Implementation", items: ["HTML", "CSS", "Bootstrap", "React (basic)", "Unity (design collaboration)"] },
     { label: "AI-assisted design", items: ["Claude", "Gemini", "Midjourney"] },
   ];
   return (
@@ -546,7 +548,7 @@ function ContactSection() {
           </FadeIn>
           <FadeIn delay={isMobile ? 0 : 150}>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {[["Email","joanna.kaminska.se@gmail.com",true],["LinkedIn","linkedin.com/in/joannakaminska",true],["Location","Stockholm, Sweden",false]].map(([label, value, isLink]) => (
+              {[["Email","joanna.kaminska.se@gmail.com",true],["LinkedIn","www.linkedin.com/in/joanna-ux",true],["Location","Stockholm, Sweden",false]].map(([label, value, isLink]) => (
                 <div key={label} style={{
                   display: "flex", justifyContent: "space-between", alignItems: "center",
                   padding: "14px 18px", background: DS.colors.raised,
