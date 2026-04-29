@@ -140,6 +140,77 @@ function Nav({ activeSection }) {
   );
 }
 
+// ── Industries tooltip stat ───────────────────────────────────────────────
+
+const INDUSTRIES = [
+  "Construction & Transport",
+  "Recruitment & HR",
+  "Renewable Energy",
+  "Mental Health & Gaming",
+  "E-commerce",
+  "Consumer IoT",
+  "Professional Services",
+  "...and more",
+];
+
+function IndustriesStat({ isMobile }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      style={{ position: "relative", cursor: "default" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div style={{
+        fontFamily: "'DM Sans', sans-serif", fontWeight: 800,
+        fontSize: isMobile ? 26 : 32, color: DS.colors.textPrimary, letterSpacing: "-0.02em",
+      }}>6+</div>
+      <div style={{
+        fontSize: 11, color: DS.colors.textMuted, letterSpacing: "0.05em", marginTop: 2,
+        borderBottom: `1px dashed ${DS.colors.textDim}`,
+        display: "inline-block", paddingBottom: 1,
+      }}>Industries</div>
+
+      {/* Tooltip */}
+      {hovered && (
+        <div style={{
+          position: "absolute", bottom: "calc(100% + 12px)", left: 0,
+          background: DS.colors.raised,
+          border: `0.5px solid ${DS.colors.border}`,
+          borderRadius: 4, padding: "12px 16px",
+          minWidth: 220, zIndex: 200,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+        }}>
+          {/* Arrow */}
+          <div style={{
+            position: "absolute", bottom: -5, left: 16,
+            width: 8, height: 8,
+            background: DS.colors.raised,
+            border: `0.5px solid ${DS.colors.border}`,
+            borderTop: "none", borderLeft: "none",
+            transform: "rotate(45deg)",
+          }} />
+          <div style={{
+            fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 500,
+            letterSpacing: "0.12em", textTransform: "uppercase",
+            color: DS.colors.accent, marginBottom: 8,
+          }}>Industries</div>
+          {INDUSTRIES.map((ind, i) => (
+            <div key={i} style={{
+              display: "flex", alignItems: "center", gap: 8,
+              marginBottom: i < INDUSTRIES.length - 1 ? 6 : 0,
+            }}>
+              <div style={{ width: 3, height: 3, borderRadius: "50%", background: DS.colors.accentDim, flexShrink: 0 }} />
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 300, color: DS.colors.textBody }}>{ind}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Hero ──────────────────────────────────────────────────────────────────
 
 function Hero() {
@@ -230,7 +301,7 @@ function Hero() {
         <div className="hero-5" style={{
           display: "flex", gap: isMobile ? 24 : 48, flexWrap: "wrap",
         }}>
-          {[["10","Years experience"],["20+","Products designed"],["6","Industries"],["MSc","Cognitive science"]].map(s => (
+          {[["10","Years experience"],["10+","Products designed"],["MSc","Cognitive science"]].map(s => (
             <div key={s[0]}>
               <div style={{
                 fontFamily: "'DM Sans', sans-serif", fontWeight: 800,
@@ -239,6 +310,9 @@ function Hero() {
               <div style={{ fontSize: 11, color: DS.colors.textMuted, letterSpacing: "0.05em", marginTop: 2 }}>{s[1]}</div>
             </div>
           ))}
+
+          {/* Industries stat with tooltip */}
+          <IndustriesStat isMobile={isMobile} />
         </div>
 
       </div>
@@ -321,18 +395,19 @@ function WorkSection() {
     { label: "Early Stage — Zero to One", description: "No product. No validated assumptions. Often no clear user base yet.", projects: [
       { tag: "Recruitment / Social Impact", title: "Zynca — Recruitment Platform", live: true, summary: "From zero through to first live version. Led discovery, lean canvas, value proposition mapping, brand, full wireframes, and clickable prototype. Today over 1000 users. Clients include Max, Assa Abloy, and Subway." },
       { tag: "Energy / B2B SaaS", title: "Locus Energy — Monitoring Dashboard", live: true, summary: "Full product design for a platform monitoring renewable energy assets across Sweden, Norway, and Finland. Real-time map views, KPI dashboards, reporting. Dense data made fast to read for expert users." },
-      { tag: "Concept Work", title: "Soundroy, Pool, RockDoc", live: false, summary: "Three early-stage products across music royalties, construction materials reuse, and underground mining. Discovery workshops, user interviews, and clickable prototypes delivered across all three." },
+      { tag: "Concept Work / Music", title: "Soundroy", live: false, summary: "Early-stage product for music royalty management. Discovery workshops, user interviews, and clickable prototype. Designed for artists navigating a complex and opaque industry." },
+      { tag: "Concept Work / Construction", title: "Pool", live: false, summary: "Early-stage product for construction materials reuse marketplace. Discovery, assumption mapping, user interviews, and clickable prototype delivered." },
+      { tag: "Concept Work / Mining", title: "RockDoc", live: false, summary: "Early-stage product for underground mining operations. Discovery workshops, user interviews, and clickable prototype. Designed for a highly specialised and non-digital-native user base." },
     ]},
     { label: "Mature Products — Real Users", description: "Changes here are measured, tested, and argued for.", projects: [
       { tag: "Mental Health / Gaming", title: "Fig by Mindforce", live: true, summary: "First UX voice on a narrative game for people managing depression. Redesigned medication management, onboarding, paywall, and co-defined a rewards system. Users were people talking about their mental health." },
       { tag: "E-commerce / Scale", title: "Allegro — UX Design", live: true, summary: "Poland's dominant e-commerce platform. Login flows, live bidding, help center. Built a complex Axure prototype for real-time auction dynamics and ran usability studies." },
       { tag: "Consumer / IoT", title: "Tinitell — Kids Wearable Device", live: false, summary: "Entire design team. Redesigned the parents's mobile app, designed interaction patterns for a new watch version, coordinated diary studies. Collaborated with industrial designer for coherent digital and physical experience." },
+      { tag: "UX Strategy / Brand", title: "Flyttsmart — UX Strategy & Brand Redesign", live: true, summary: "Research, full service mapping across four personas, broker engagement strategy, complete brand redesign. Logo, colour, typography, photography direction, guidelines. Delivered in two weeks." },
     ]},
-    { label: "Web Design", description: null, projects: [
+    { label: "Brand and Web Design", description: null, projects: [
       { tag: "Executive Advisory / Brand", title: "9Yard Partner — Identity and Website", live: true, summary: "Full brand identity for an executive advisory consultancy. Logo, typography, deep charcoal and gold palette, pattern system, and Webflow website. Site is live at 9yardpartner.com." },
-      { tag: "Legal Services / Web", title: "Legalisering.se — Website Design", live: true, summary: "Full website design for a Swedish Notarius Publicus and document legalisation service. Multilingual audience across Swedish, English, and Norwegian. Implemented in WordPress. Site is live at legalisering.se." },
-      { tag: "Moving Platform / Brand", title: "Flyttsmart — Brand Refresh", live: true, summary: "Research, full service mapping across four personas, broker engagement strategy, complete brand refresh. Logo, colour, typography, photography direction, guidelines. Delivered in two weeks." },
-      { tag: "Consumer / IoT", title: "Tinitell — Kids Wearable Device", live: false, summary: "Entire design team. Redesigned the parents' mobile app, designed interaction patterns for a new watch version, coordinated diary studies. Collaborated with industrial designer for coherent digital and physical experience." },
+
     ]},
   ];
 
