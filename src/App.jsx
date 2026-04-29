@@ -251,13 +251,14 @@ function Hero() {
 function ProjectCard({ project, index }) {
   const [hovered, setHovered] = useState(false);
   return (
-    <FadeIn delay={index * 80}>
+    <FadeIn delay={index * 80} style={{ height: "100%" }}>
       <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
         style={{
           background: hovered ? DS.colors.card : DS.colors.raised,
           border: `0.5px solid ${hovered ? DS.colors.borderHover : DS.colors.border}`,
           borderLeft: `2px solid ${hovered ? DS.colors.accent : DS.colors.accentDim}`,
           borderRadius: 4, overflow: "hidden", transition: "all 0.25s ease",
+          height: "100%", display: "flex", flexDirection: "column",
         }}>
         <div style={{
           width: "100%", aspectRatio: "16/9",
@@ -352,6 +353,7 @@ function WorkSection() {
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 1fr))",
             gap: 16,
+            alignItems: "stretch",
           }}>
             {group.projects.map((p, pi) => <ProjectCard key={pi} project={p} index={pi} />)}
           </div>
