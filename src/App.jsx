@@ -383,23 +383,31 @@ function ProjectCard({ project, index }) {
             textTransform: "uppercase", textAlign: "center", lineHeight: 1.6,
           }}>Illustration<br />coming soon</div>
         </div>
-        <div style={{ padding: "24px 28px" }}>
+        <div style={{ padding: "24px 28px", display: "flex", flexDirection: "column", flex: 1 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
             <Eyebrow>{project.tag}</Eyebrow>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              {route && (
-                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: DS.colors.accent, letterSpacing: "0.08em", textTransform: "uppercase", border: `0.5px solid ${DS.colors.accentDim}`, padding: "2px 8px", borderRadius: 2 }}>Case study</span>
-              )}
             {project.live && (
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <div style={{ width: 5, height: 5, borderRadius: "50%", background: DS.colors.accent }} />
                 <span style={{ fontSize: 11, color: DS.colors.textMuted, letterSpacing: "0.05em" }}>Live</span>
               </div>
             )}
-            </div>
           </div>
           <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 800, fontSize: 18, letterSpacing: "-0.01em", color: DS.colors.textPrimary, marginBottom: 10 }}>{project.title}</h3>
-          <p style={{ fontSize: 14, fontWeight: 300, color: DS.colors.textBody, lineHeight: 1.7 }}>{project.summary}</p>
+          <p style={{ fontSize: 14, fontWeight: 300, color: DS.colors.textBody, lineHeight: 1.7, flex: 1 }}>{project.summary}</p>
+          {route && (
+            <div style={{ marginTop: 16, paddingTop: 16, borderTop: `0.5px solid ${DS.colors.border}` }}>
+              <span style={{
+                fontFamily: "'DM Mono', monospace", fontSize: 10,
+                color: DS.colors.accent, letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                display: "flex", alignItems: "center", gap: 6,
+              }}>
+                Read case study
+                <span style={{ fontSize: 12 }}>→</span>
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </FadeIn>
