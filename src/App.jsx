@@ -403,8 +403,11 @@ function ProjectCard({ project, index }) {
                 textTransform: "uppercase",
                 display: "flex", alignItems: "center", gap: 6,
               }}>
-                Read case study
-                <span style={{ fontSize: 12 }}>→</span>
+                <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="4.5" width="8" height="6" rx="1" stroke="#7AE650" strokeWidth="0.8"/>
+                  <path d="M3 4.5V3a2 2 0 0 1 4 0v1.5" stroke="#7AE650" strokeWidth="0.8" strokeLinecap="round"/>
+                </svg>
+                Read case study →
               </span>
             </div>
           )}
