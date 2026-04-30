@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./index.css";
 import DesignSystemPage from "./DesignSystem";
+import MindforceCase from "./MindforceCase";
 
 function useRoute() {
   const [path, setPath] = useState(window.location.pathname);
@@ -324,15 +325,30 @@ function Hero() {
 
 function ProjectCard({ project, index }) {
   const [hovered, setHovered] = useState(false);
+  const caseStudyRoutes = {
+    "Fig by Mindforce": "/case-study/mindforce",
+  };
+  const route = caseStudyRoutes[project.title];
+  function handleClick() {
+    if (route) {
+      window.history.pushState({}, "", route);
+      window.dispatchEvent(new PopStateEvent("popstate"));
+      window.scrollTo(0, 0);
+    }
+  }
   return (
     <FadeIn delay={index * 80} style={{ height: "100%" }}>
-      <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+      <div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onClick={handleClick}
         style={{
           background: hovered ? DS.colors.card : DS.colors.raised,
           border: `0.5px solid ${hovered ? DS.colors.borderHover : DS.colors.border}`,
           borderLeft: `2px solid ${hovered ? DS.colors.accent : DS.colors.accentDim}`,
           borderRadius: 4, overflow: "hidden", transition: "all 0.25s ease",
           height: "100%", display: "flex", flexDirection: "column",
+          cursor: route ? "pointer" : "default",
         }}>
         <div style={{
           width: "100%", aspectRatio: "16/9",
@@ -370,12 +386,17 @@ function ProjectCard({ project, index }) {
         <div style={{ padding: "24px 28px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
             <Eyebrow>{project.tag}</Eyebrow>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              {route && (
+                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: DS.colors.accent, letterSpacing: "0.08em", textTransform: "uppercase", border: `0.5px solid ${DS.colors.accentDim}`, padding: "2px 8px", borderRadius: 2 }}>Case study</span>
+              )}
             {project.live && (
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <div style={{ width: 5, height: 5, borderRadius: "50%", background: DS.colors.accent }} />
                 <span style={{ fontSize: 11, color: DS.colors.textMuted, letterSpacing: "0.05em" }}>Live</span>
               </div>
             )}
+            </div>
           </div>
           <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 800, fontSize: 18, letterSpacing: "-0.01em", color: DS.colors.textPrimary, marginBottom: 10 }}>{project.title}</h3>
           <p style={{ fontSize: 14, fontWeight: 300, color: DS.colors.textBody, lineHeight: 1.7 }}>{project.summary}</p>
@@ -709,5 +730,7 @@ function Portfolio() {
 
 export default function App() {
   const path = useRoute();
-  return path === "/design-system" ? <DesignSystemPage /> : <Portfolio />;
+  if (path === "/design-system") return <DesignSystemPage />;
+  if (path === "/case-study/mindforce") return <MindforceCase />;
+  return <Portfolio />;
 }
