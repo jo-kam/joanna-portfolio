@@ -117,14 +117,12 @@ function PasswordGate({ onUnlock }) {
   );
 }
 
-export default function MindforceCase() {
-  const [unlocked, setUnlocked] = useState(false);
-
+export default function MindforceCase({ unlocked, onUnlock }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (!unlocked) return <PasswordGate onUnlock={() => setUnlocked(true)} />;
+  if (!unlocked) return <PasswordGate onUnlock={onUnlock} />;
 
   return (
     <>
