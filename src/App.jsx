@@ -237,9 +237,9 @@ function ProjectCard({ project, index }) {
           borderRadius: 4, overflow: "hidden", transition: "all 0.25s ease",
         }}>
 
-        {/* Cover image — only renders if project.image is set */}
-        {project.image && (
-          <div style={{ overflow: "hidden", height: 200 }}>
+        {/* Cover image — placeholder shown if no real image yet */}
+        <div style={{ overflow: "hidden", height: 200, position: "relative", background: DS.colors.card }}>
+          {project.image ? (
             <img
               src={project.image}
               alt={project.title}
@@ -250,8 +250,19 @@ function ProjectCard({ project, index }) {
                 transition: "opacity 0.35s ease, transform 0.35s ease",
               }}
             />
-          </div>
-        )}
+          ) : (
+            <div style={{
+              width: "100%", height: "100%",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              background: `repeating-linear-gradient(45deg, ${DS.colors.raised}, ${DS.colors.raised} 10px, ${DS.colors.card} 10px, ${DS.colors.card} 20px)`,
+            }}>
+              <span style={{
+                fontFamily: "'DM Mono', monospace", fontSize: 10,
+                color: DS.colors.textDim, letterSpacing: "0.1em",
+              }}>IMAGE COMING SOON</span>
+            </div>
+          )}
+        </div>
 
         <div style={{ padding: "28px 32px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
@@ -282,6 +293,7 @@ function WorkSection() {
       projects: [
         {
           tag: "Transport / NCC Startup", title: "Hauly — Heavy Transport Platform", live: true,
+          image: "/hauly-cover.webp",
           summary: "Lead designer on a digital ordering and transport platform for construction materials. Interviewed truck drivers at quarries. Drivers started logging deliveries they had never reported before — a clear signal the flow earned trust.",
         },
         {
@@ -297,14 +309,17 @@ function WorkSection() {
       projects: [
         {
           tag: "Recruitment / Social Impact", title: "Zynca — Recruitment Platform", live: true,
+          image: "/zynca-cover.webp",
           summary: "From zero through to first live version. Led discovery, lean canvas, value proposition mapping, brand, full wireframes, and clickable prototype. Today over 1000 users. Clients include Max, Assa Abloy, and Subway.",
         },
         {
           tag: "Energy / B2B SaaS", title: "Locus Energy — Monitoring Dashboard", live: true,
+          image: "/locus-energy-cover.webp",
           summary: "Full product design for a platform monitoring renewable energy assets across Sweden, Norway, and Finland. Real-time map views, KPI dashboards, reporting. Dense data made fast to read for expert users.",
         },
         {
           tag: "Concept Work", title: "Soundroy, Pool, RockDoc", live: false,
+          image: "/concept-work-cover.webp",
           summary: "Three early-stage products across music royalties, construction materials reuse, and underground mining. Discovery workshops, user interviews, and clickable prototypes delivered across all three.",
         },
       ],
@@ -315,14 +330,17 @@ function WorkSection() {
       projects: [
         {
           tag: "Mental Health / Gaming", title: "Fig by Mindforce", live: true,
+          image: "/fig-mindforce-cover.webp",
           summary: "First UX voice on a narrative game for people managing depression. Redesigned medication management, onboarding, paywall, and co-defined a rewards system. Users were people talking about their mental health.",
         },
         {
           tag: "E-commerce / Scale", title: "Allegro — UX Design", live: true,
+          image: "/allegro-cover.webp",
           summary: "Poland's dominant e-commerce platform. Login flows, live bidding, help center. Built a complex Axure prototype for real-time auction dynamics and ran usability studies.",
         },
         {
           tag: "Moving Platform / Brand", title: "Flyttsmart — Brand Refresh", live: true,
+          image: "/flyttsmart-cover.webp",
           summary: "Research, full service mapping across four personas, broker engagement strategy, complete brand refresh. Logo, colour, typography, photography direction, guidelines. Delivered in two weeks.",
         },
       ],
@@ -333,10 +351,12 @@ function WorkSection() {
       projects: [
         {
           tag: "Executive Advisory / Brand", title: "9Yard Partner — Identity and Website", live: true,
+          image: "/9yard-cover.webp",
           summary: "Full brand identity for an executive advisory consultancy. Logo, typography, deep charcoal and gold palette, pattern system, and Webflow website. Site is live at 9yardpartner.com.",
         },
         {
           tag: "Consumer / IoT", title: "Tinitell — Kids Wearable Device", live: false,
+          image: "/tinitell-cover.webp",
           summary: "Entire design team. Redesigned the parents' mobile app, designed interaction patterns for a new watch version, coordinated diary studies. Collaborated with industrial designer for coherent digital and physical experience.",
         },
       ],
