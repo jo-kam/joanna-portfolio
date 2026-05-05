@@ -226,7 +226,7 @@ function Hero() {
 function ProjectCard({ project, index }) {
   const [hovered, setHovered] = useState(false);
   return (
-    <FadeIn delay={index * 80}>
+    <FadeIn delay={index * 80} style={{ height: "100%" }}>
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -235,6 +235,7 @@ function ProjectCard({ project, index }) {
           border: `0.5px solid ${hovered ? DS.colors.borderHover : DS.colors.border}`,
           borderLeft: `2px solid ${hovered ? DS.colors.accent : DS.colors.accentDim}`,
           borderRadius: 4, overflow: "hidden", transition: "all 0.25s ease",
+          height: "100%", display: "flex", flexDirection: "column",
         }}>
 
         {/* Cover image — placeholder shown if no real image yet */}
@@ -264,7 +265,7 @@ function ProjectCard({ project, index }) {
           )}
         </div>
 
-        <div style={{ padding: "28px 32px" }}>
+        <div style={{ padding: "28px 32px", flex: 1 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
             <Eyebrow>{project.tag}</Eyebrow>
             {project.live && (
@@ -449,24 +450,7 @@ function AboutSection() {
             </FadeIn>
           </div>
         </div>
-        <FadeIn delay={100} style={{ marginTop: 80 }}>
-          <div style={{ borderTop: `0.5px solid ${DS.colors.border}`, paddingTop: 48 }}>
-            <Eyebrow style={{ marginBottom: 32 }}>What people say</Eyebrow>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
-              {[
-                { quote: "Thank you for pouring in so much passion and thoughtfulness into this product. Let's work again soon.", name: "Anders", company: "Fig by Mindforce" },
-                { quote: "I have really appreciated your curiosity, how quickly you learn, and how easy it is to collaborate with you.", name: "Moa-Stina", company: "Fig by Mindforce" },
-                { quote: "It's been great having you around, with your kind and relaxed attitude as well as your sharp analyses.", name: "Carl", company: "Fig by Mindforce" },
-                { quote: "It's been a pleasure to collaborate with you and share the experience of creating beautiful things with such care for details.", name: "Jakov", company: "Fig by Mindforce" },
-              ].map((t, i) => (
-                <div key={i} style={{ background: DS.colors.raised, border: `0.5px solid ${DS.colors.border}`, borderRadius: 4, padding: "20px 24px" }}>
-                  <p style={{ fontSize: 13, fontWeight: 300, fontStyle: "italic", color: DS.colors.textBody, lineHeight: 1.7, marginBottom: 16 }}>"{t.quote}"</p>
-                  <div style={{ fontSize: 12, color: DS.colors.textMuted }}><span style={{ color: DS.colors.textPrimary, fontWeight: 500 }}>{t.name}</span> — {t.company}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
+
       </div>
     </section>
   );
