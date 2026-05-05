@@ -109,7 +109,7 @@ function Nav({ activeSection }) {
       transition: "all 0.3s ease",
     }}>
       <a href="#top" style={{
-        fontFamily: "'Pixelify Sans', cursive", fontWeight: 800,
+        fontFamily: "'DM Sans', sans-serif", fontWeight: 800,
         fontSize: 16, letterSpacing: "-0.02em", color: DS.colors.textPrimary,
       }}>JK</a>
       <div style={{ display: "flex", gap: 32 }}>
@@ -170,7 +170,7 @@ function Hero() {
 
         <div className="hero-2">
           <h1 style={{
-            fontFamily: "'Pixelify Sans', cursive", fontWeight: 800,
+            fontFamily: "'DM Sans', sans-serif", fontWeight: 800,
             fontSize: "clamp(72px, 12vw, 140px)", lineHeight: 0.9,
             letterSpacing: "-0.03em", color: DS.colors.textPrimary, marginBottom: 40,
           }}>
@@ -208,7 +208,7 @@ function Hero() {
           {[["10","Years experience"],["20+","Products designed"],["6","Industries"],["MSc","Cognitive science"]].map(s => (
             <div key={s[0]}>
               <div style={{
-                fontFamily: "'Pixelify Sans', cursive", fontWeight: 800,
+                fontFamily: "'DM Sans', sans-serif", fontWeight: 800,
                 fontSize: 32, color: DS.colors.textPrimary, letterSpacing: "-0.02em",
               }}>{s[0]}</div>
               <div style={{ fontSize: 12, color: DS.colors.textMuted, letterSpacing: "0.05em", marginTop: 2 }}>{s[1]}</div>
