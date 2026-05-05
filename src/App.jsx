@@ -134,7 +134,7 @@ function Hero() {
       padding: "120px 40px 80px", position: "relative", overflow: "hidden",
     }}>
 
-      {/* Mesh gradient — className-based so CSS @keyframes apply reliably */}
+      {/* Mesh gradient */}
       <div className="mesh-bg">
         <div className="mesh-base" />
         <div className="mesh-orb mesh-orb-1" />
@@ -162,7 +162,6 @@ function Hero() {
         background: DS.colors.border,
       }} />
 
-      {/* Content — CSS animation classes, fire once, stay visible forever */}
       <div style={{ maxWidth: 1100, width: "100%", margin: "0 auto", position: "relative" }}>
 
         <div className="hero-1">
@@ -228,24 +227,48 @@ function ProjectCard({ project, index }) {
   const [hovered, setHovered] = useState(false);
   return (
     <FadeIn delay={index * 80}>
-      <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+      <div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         style={{
           background: hovered ? DS.colors.card : DS.colors.raised,
           border: `0.5px solid ${hovered ? DS.colors.borderHover : DS.colors.border}`,
           borderLeft: `2px solid ${hovered ? DS.colors.accent : DS.colors.accentDim}`,
-          borderRadius: 4, padding: "28px 32px", transition: "all 0.25s ease",
+          borderRadius: 4, overflow: "hidden", transition: "all 0.25s ease",
         }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
-          <Eyebrow>{project.tag}</Eyebrow>
-          {project.live && (
-            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <div style={{ width: 5, height: 5, borderRadius: "50%", background: DS.colors.accent }} />
-              <span style={{ fontSize: 11, color: DS.colors.textMuted, letterSpacing: "0.05em" }}>Live</span>
-            </div>
-          )}
+
+        {/* Cover image — only renders if project.image is set */}
+        {project.image && (
+          <div style={{ overflow: "hidden", height: 200 }}>
+            <img
+              src={project.image}
+              alt={project.title}
+              style={{
+                width: "100%", height: "100%", objectFit: "cover", display: "block",
+                opacity: hovered ? 1 : 0.8,
+                transform: hovered ? "scale(1.03)" : "scale(1)",
+                transition: "opacity 0.35s ease, transform 0.35s ease",
+              }}
+            />
+          </div>
+        )}
+
+        <div style={{ padding: "28px 32px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
+            <Eyebrow>{project.tag}</Eyebrow>
+            {project.live && (
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ width: 5, height: 5, borderRadius: "50%", background: DS.colors.accent }} />
+                <span style={{ fontSize: 11, color: DS.colors.textMuted, letterSpacing: "0.05em" }}>Live</span>
+              </div>
+            )}
+          </div>
+          <h3 style={{
+            fontFamily: "'DM Sans', sans-serif", fontWeight: 800, fontSize: 20,
+            letterSpacing: "-0.01em", color: DS.colors.textPrimary, marginBottom: 12,
+          }}>{project.title}</h3>
+          <p style={{ fontSize: 14, fontWeight: 300, color: DS.colors.textBody, lineHeight: 1.7 }}>{project.summary}</p>
         </div>
-        <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 800, fontSize: 20, letterSpacing: "-0.01em", color: DS.colors.textPrimary, marginBottom: 12 }}>{project.title}</h3>
-        <p style={{ fontSize: 14, fontWeight: 300, color: DS.colors.textBody, lineHeight: 1.7 }}>{project.summary}</p>
       </div>
     </FadeIn>
   );
@@ -253,24 +276,71 @@ function ProjectCard({ project, index }) {
 
 function WorkSection() {
   const groups = [
-    { label: "Complex Operations — Two Worlds", description: "Products that serve two completely different users who depend on the same system.", projects: [
-      { tag: "Transport / NCC Startup", title: "Hauly — Heavy Transport Platform", live: true, summary: "Lead designer on a digital ordering and transport platform for construction materials. Interviewed truck drivers at quarries. Drivers started logging deliveries they had never reported before — a clear signal the flow earned trust." },
-      { tag: "Transport / NCC Stone Division", title: "NCC — Transport Management Platform", live: false, summary: "UX, UI, and research modernising transport planning across NCC's Stone Division. The tool cleared repetitive work and left space for human judgment. NCC dropped several paid tools and connected the workflow to Microsoft Dynamics." },
-    ]},
-    { label: "Early Stage — Zero to One", description: "No product. No validated assumptions. Often no clear user base yet.", projects: [
-      { tag: "Recruitment / Social Impact", title: "Zynca — Recruitment Platform", live: true, summary: "From zero through to first live version. Led discovery, lean canvas, value proposition mapping, brand, full wireframes, and clickable prototype. Today over 1000 users. Clients include Max, Assa Abloy, and Subway." },
-      { tag: "Energy / B2B SaaS", title: "Locus Energy — Monitoring Dashboard", live: true, summary: "Full product design for a platform monitoring renewable energy assets across Sweden, Norway, and Finland. Real-time map views, KPI dashboards, reporting. Dense data made fast to read for expert users." },
-      { tag: "Concept Work", title: "Soundroy, Pool, RockDoc", live: false, summary: "Three early-stage products across music royalties, construction materials reuse, and underground mining. Discovery workshops, user interviews, and clickable prototypes delivered across all three." },
-    ]},
-    { label: "Mature Products — Real Users", description: "Changes here are measured, tested, and argued for.", projects: [
-      { tag: "Mental Health / Gaming", title: "Fig by Mindforce", live: true, summary: "First UX voice on a narrative game for people managing depression. Redesigned medication management, onboarding, paywall, and co-defined a rewards system. Users were people talking about their mental health." },
-      { tag: "E-commerce / Scale", title: "Allegro — UX Design", live: true, summary: "Poland's dominant e-commerce platform. Login flows, live bidding, help center. Built a complex Axure prototype for real-time auction dynamics and ran usability studies." },
-      { tag: "Moving Platform / Brand", title: "Flyttsmart — Brand Refresh", live: true, summary: "Research, full service mapping across four personas, broker engagement strategy, complete brand refresh. Logo, colour, typography, photography direction, guidelines. Delivered in two weeks." },
-    ]},
-    { label: "Brand and Web", description: null, projects: [
-      { tag: "Executive Advisory / Brand", title: "9Yard Partner — Identity and Website", live: true, summary: "Full brand identity for an executive advisory consultancy. Logo, typography, deep charcoal and gold palette, pattern system, and Webflow website. Site is live at 9yardpartner.com." },
-      { tag: "Consumer / IoT", title: "Tinitell — Kids Wearable Device", live: false, summary: "Entire design team. Redesigned the parents' mobile app, designed interaction patterns for a new watch version, coordinated diary studies. Collaborated with industrial designer for coherent digital and physical experience." },
-    ]},
+    {
+      label: "Complex Operations — Two Worlds",
+      description: "Products that serve two completely different users who depend on the same system.",
+      projects: [
+        {
+          tag: "Transport / NCC Startup", title: "Hauly — Heavy Transport Platform", live: true,
+          summary: "Lead designer on a digital ordering and transport platform for construction materials. Interviewed truck drivers at quarries. Drivers started logging deliveries they had never reported before — a clear signal the flow earned trust.",
+        },
+        {
+          tag: "Transport / NCC Stone Division", title: "NCC — Transport Management Platform", live: false,
+          image: "/transport-management-cover.webp",
+          summary: "UX, UI, and research modernising transport planning across NCC's Stone Division. The tool cleared repetitive work and left space for human judgment. NCC dropped several paid tools and connected the workflow to Microsoft Dynamics.",
+        },
+      ],
+    },
+    {
+      label: "Early Stage — Zero to One",
+      description: "No product. No validated assumptions. Often no clear user base yet.",
+      projects: [
+        {
+          tag: "Recruitment / Social Impact", title: "Zynca — Recruitment Platform", live: true,
+          summary: "From zero through to first live version. Led discovery, lean canvas, value proposition mapping, brand, full wireframes, and clickable prototype. Today over 1000 users. Clients include Max, Assa Abloy, and Subway.",
+        },
+        {
+          tag: "Energy / B2B SaaS", title: "Locus Energy — Monitoring Dashboard", live: true,
+          summary: "Full product design for a platform monitoring renewable energy assets across Sweden, Norway, and Finland. Real-time map views, KPI dashboards, reporting. Dense data made fast to read for expert users.",
+        },
+        {
+          tag: "Concept Work", title: "Soundroy, Pool, RockDoc", live: false,
+          summary: "Three early-stage products across music royalties, construction materials reuse, and underground mining. Discovery workshops, user interviews, and clickable prototypes delivered across all three.",
+        },
+      ],
+    },
+    {
+      label: "Mature Products — Real Users",
+      description: "Changes here are measured, tested, and argued for.",
+      projects: [
+        {
+          tag: "Mental Health / Gaming", title: "Fig by Mindforce", live: true,
+          summary: "First UX voice on a narrative game for people managing depression. Redesigned medication management, onboarding, paywall, and co-defined a rewards system. Users were people talking about their mental health.",
+        },
+        {
+          tag: "E-commerce / Scale", title: "Allegro — UX Design", live: true,
+          summary: "Poland's dominant e-commerce platform. Login flows, live bidding, help center. Built a complex Axure prototype for real-time auction dynamics and ran usability studies.",
+        },
+        {
+          tag: "Moving Platform / Brand", title: "Flyttsmart — Brand Refresh", live: true,
+          summary: "Research, full service mapping across four personas, broker engagement strategy, complete brand refresh. Logo, colour, typography, photography direction, guidelines. Delivered in two weeks.",
+        },
+      ],
+    },
+    {
+      label: "Brand and Web",
+      description: null,
+      projects: [
+        {
+          tag: "Executive Advisory / Brand", title: "9Yard Partner — Identity and Website", live: true,
+          summary: "Full brand identity for an executive advisory consultancy. Logo, typography, deep charcoal and gold palette, pattern system, and Webflow website. Site is live at 9yardpartner.com.",
+        },
+        {
+          tag: "Consumer / IoT", title: "Tinitell — Kids Wearable Device", live: false,
+          summary: "Entire design team. Redesigned the parents' mobile app, designed interaction patterns for a new watch version, coordinated diary studies. Collaborated with industrial designer for coherent digital and physical experience.",
+        },
+      ],
+    },
   ];
 
   return (
